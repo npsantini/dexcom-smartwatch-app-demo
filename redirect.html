@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Redirect</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<h1>Redirect Page</h1>
+		<script>
+		$(function() {
+			var authCodeQuery = window.location.search;
+			var authCode = authCodeQuery.replace("?code=", "");
+			console.log(authCode);
+			
+
+			var data = "client_secret=2r8VThR01IfvMhKP&client_id=aPRu1PIFgaBtR0WBfXnFIyh2n0cXuow2&code=" + authCode + "&grant_type=authorization_code&redirect_uri=https://npsantini.github.io/dexcom/redirect.html";
+
+			console.log(data);
+
+			var xhr = new XMLHttpRequest();
+			xhr.withCredentials = true;
+
+			xhr.addEventListener("readystatechange", function () {
+			  if (this.readyState === 4) {
+			    console.log(this.responseText);
+			  }
+			});
+
+			xhr.open("POST", "https://sandbox-api.dexcom.com/v2/oauth2/token");
+			xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+			xhr.setRequestHeader("cache-control", "no-cache");
+
+			xhr.send(data);
+		});
+		</script>
+	</body>
+</html>
