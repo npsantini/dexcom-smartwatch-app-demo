@@ -4,65 +4,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>Hello Tizen</title>
     <link rel="stylesheet" href="css/style.css">
-		<script src="js/jquery-3.4.1.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/font-awesome/4.7.0/css/font-awesome.min.css">
-			<script src="js/d3-dsv.v1.min.js"></script>
-	<script src="js/d3-fetch.v1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<i class='fa fa-arrow-up' aria-hidden='true'></i>
 	<div id="dataTable"></div>
 
+
+	<script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+	<script src="https://d3js.org/d3-fetch.v1.min.js"></script>
 	<script>
 	d3.csv("data.csv").then(function(data) {
 		var size = Object.keys(data).length;
-		$("#dataTable").append("<div class='title'><br><br><br>GlucoseValue(mg/dL)</div>");
+		$("#dataTable").append("<div>GlucoseValue(mg/dL)</div>");
 		for (var i = 0; i < size; i++){
-			$("#dataTable").append("<div class='bloodSugar' id='b"+i+"'>"+data[i].GlucoseValue+"</div>");
+			$("#dataTable").append("<div class='bloodSugar b"+i+"'>"+data[i].GlucoseValue+"</div>");
 		}
 		
 	});
 	</script>
 	<script>
-	
 		setTimeout(function() {
-			//var x1 = 0;
-			//var x2 = "b" + i;
-			//var x = $(x2).text();
+
 
 			$(".bloodSugar").each(function() {
-				//var x = $(this).prev().text();
-	
-			 //var x = $(this).previousElementSibling.innerHTML; 
+				var x = $(this).prev().text();
+			
 				//console.log(x);
 
-			    var y = $(this).text();
+			var y = $(this).text();
 		
 			
-				if ($(this).html() >= 210){
+				if ($(this).html() >= 240){
 					$(this).addClass("high");
 				} else if ($(this).html() < 240 && $(this).html() > 80){
 					$(this).addClass("nuetral");
 				} else {
 					$(this).addClass("low");
 				}
-/*
+
 				if ((x - y) < -10){
-					$(this).append("&uarr;&uarr;");
+					$(this).append("<i class='fa fa-arrow-up' aria-hidden='true'></i><i class='fa fa-arrow-up' aria-hidden='true'></i>");
 				} else if ((x - y) < -5){
-					$(this).append("&uarr;");
+					$(this).append("<i class='fa fa-arrow-up' aria-hidden='true'></i>");
 				} else if ((x - y) >= -5 && (x - y) <= 5){
-					$(this).append("&rarr;");
+					$(this).append("<i class='fa fa-arrow-right' aria-hidden='true'></i>");
 				} else if ((x - y)  >= 5 && (x - y) < 10){
-					$(this).append("&darr;");
+					$(this).append("<i class='fa fa-arrow-down' aria-hidden='true'></i>");
 				} else {
-					$(this).append("&darr;");
+					$(this).append("<i class='fa fa-arrow-down' aria-hidden='true'></i><i class='fa fa-arrow-down' aria-hidden='true'></i>");
 				}
-*/		
+				
 
 			});
-			
-		}, 1000);
+		}, 4000);
 
 		var myIndex = 0;
 		carousel();
@@ -78,9 +73,8 @@
 		$(x[myIndex-1]).css("display","block"); 
 		setTimeout(carousel, 2000); // Change image every 2 seconds
 		}
-		
 	</script>
-	<script src="js/app.js"></script>
+
 
 </body>
 </html>

@@ -1,0 +1,59 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background:#000;
+    text-align:center;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+h1 {
+	color:red;
+}
+#contents {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-color:#aaaaff;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#content_text {
+    font-weight: bold;
+    font-size: 5em;
+    color: #ffffff;
+}
+	#dataTable{
+		width:100%;
+		height:100%;
+	}
+	.high {
+		background:#fdca1f;
+	}
+	.nuetral {
+		background: #cdd0d7;
+	}
+	.low {
+		background: #ef0000;
+	}
+	.bloodSugar {
+		margin-top:-95px;
+		border-radius:50%;
+		width:100%;
+		height:100%;
+		font-size:80px;
+		font-weight:bold;
+		text-align:center;
+		line-height:350px;
+		display:none;
+	}
+	.title{
+	font-size:20px;
+	font-weight:bold;
+		
+	}

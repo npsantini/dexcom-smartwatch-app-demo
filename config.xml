@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="https://santini.io/dexcom/index.html" version="69.69.420" height="360" width="360" viewmodes="fullscreen">
+    <tizen:application id="Yz7J6M57ux.dexcom" package="Yz7J6M57ux" required_version="2.3"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    <icon src="icon-2.png"/>
+    <name>Blood Sugar Time</name>
+    <tizen:profile name="wearable"/>
+</widget>
